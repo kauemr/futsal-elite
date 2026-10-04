@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Futsal Elite | Treine com Propósito</title>
+
+    <meta name="description"
+        content="Futsal Elite: um programa estruturado para desenvolver técnica, inteligência de jogo, tomada de decisão e preparação para o futsal.">
+
+    <meta name="theme-color" content="#080808">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* ================================
+           RESET
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #070707;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* ================================
+           VARIÁVEIS
+        ================================= */
+
+        :root {
+            --green: #00ff88;
+            --green-dark: #00c96b;
+            --white: #ffffff;
+            --gray: #a8a8a8;
+            --dark: #0c0c0c;
+            --dark-2: #111111;
+            --dark-3: #171717;
+            --border: rgba(255,255,255,0.08);
+        }
+
+
+        /* ================================
+           UTILITÁRIOS
+        ================================= */
+
+        .container {
+            width: min(1120px, 92%);
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .green {
+            color: var(--green);
+        }
+
+
+        /* ================================
+           HEADER
+        ================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(7, 7, 7, 0.78);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar {
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-link {
+            color: #cfcfcf;
+            font-size: 14px;
+            transition: .25s;
+        }
+
+        .nav-link:hover {
+            color: var(--green);
+        }
+
+
+        /* ================================
+           BOTÕES
+        ================================= */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 25px;
+
+            border-radius: 10px;
+
+            font-weight: 800;
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: .25s;
+
+            border: none;
+        }
+
+        .btn-primary {
+            color: #00150b;
+
+            background: var(--green);
+
+            box-shadow:
+                0 0 25px rgba(0,255,136,.12);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #18ff98;
+
+            box-shadow:
+                0 10px 35px rgba(0,255,136,.2);
+        }
+
+        .btn-large {
+            padding: 18px 32px;
+            font-size: 15px;
+            border-radius: 12px;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 120px;
+            padding-bottom: 80px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+            height: 600px;
+
+            background: rgba(0,255,136,.07);
+
+            filter: blur(120px);
+
+            border-radius: 50%;
+
+            top: 10%;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: auto;
+
+            text-align: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .badge {
+            display: inline-flex;
+
+            padding: 8px 14px;
+
+            border-radius: 50px;
+
+            border: 1px solid rgba(0,255,136,.25);
+
+            background: rgba(0,255,136,.06);
+
+            color: var(--green);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            font-weight: 900;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            max-width: 720px;
+
+            margin: 0 auto 32px;
+
+            color: #bcbcbc;
+
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .hero-note {
+            margin-top: 18px;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+
+        /* ================================
+           STATS
+        ================================= */
+
+        .stats {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            background: #0a0a0a;
+        }
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            padding: 35px 20px;
+
+            text-align: center;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+
+            color: var(--green);
+
+            font-size: 28px;
+            font-weight: 900;
+        }
+
+        .stat span {
+            color: #858585;
+            font-size: 12px;
+        }
+
+
+        /* ================================
+           TÍTULOS
+        ================================= */
+
+        .section-title {
+            max-width: 720px;
+
+            margin: 0 auto 55px;
+
+            text-align: center;
+        }
+
+        .section-title .mini {
+            display: block;
+
+            color: var(--green);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 5vw, 48px);
+
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #8e8e8e;
+
+            font-size: 15px;
+        }
+
+
+        /* ================================
+           PROBLEMA
+        ================================= */
+
+        .problem {
+            background: #090909;
+        }
+
+        .problem-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .problem-card {
+            padding: 30px;
+
+            background: linear-gradient(
+                145deg,
+                #111,
+                #0b0b0b
+            );
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(0,255,136,.25);
+        }
+
+        .icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(0,255,136,.08);
+
+            border-radius: 10px;
+
+            color: var(--green);
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .problem-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .problem-card p {
+            color: #858585;
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           MÉTODO
+        ================================= */
+
+        .method-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 14px;
+        }
+
+        .method-card {
+            padding: 25px;
+
+            border: 1px solid var(--border);
+
+            background: #0e0e0e;
+
+            border-radius: 14px;
+
+            transition: .3s;
+        }
+
+        .method-card:hover {
+            border-color: rgba(0,255,136,.3);
+            transform: translateY(-4px);
+        }
+
+        .number {
+            color: #555;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 22px;
+        }
+
+        .method-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .method-card p {
+            color: #777;
+            font-size: 12px;
+        }
+
+
+        /* ================================
+           MÓDULOS
+        ================================= */
+
+        .modules {
+            background: #090909;
+        }
+
+        .module-list {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .module {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+
+            padding: 20px;
+
+            background: #101010;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+        }
+
+        .module-number {
+            min-width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+
+            background: rgba(0,255,136,.08);
+
+            color: var(--green);
+
+            font-size: 12px;
+
+            font-weight: 900;
+        }
+
+        .module h3 {
+            font-size: 14px;
+        }
+
+        .module p {
+            color: #777;
+            font-size: 11px;
+        }
+
+
+        /* ================================
+           BÔNUS
+        ================================= */
+
+        .bonus-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .bonus {
+            padding: 25px;
+
+            background: #101010;
+
+            border: 1px solid rgba(0,255,136,.12);
+
+            border-radius: 14px;
+        }
+
+        .bonus-label {
+            display: inline-block;
+
+            padding: 5px 8px;
+
+            background: rgba(0,255,136,.08);
+
+            color: var(--green);
+
+            border-radius: 5px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            margin-bottom: 15px;
+        }
+
+        .bonus h3 {
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .bonus p {
+            color: #777;
+            font-size: 12px;
+        }
+
+
+        /* ================================
+           OFERTA
+        ================================= */
+
+        .offer {
+            padding: 110px 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(0,255,136,.07),
+                    transparent 55%
+                );
+        }
+
+        .offer-box {
+            max-width: 650px;
+
+            margin: auto;
+
+            padding: 45px;
+
+            text-align: center;
+
+            background: linear-gradient(
+                145deg,
+                #151515,
+                #0b0b0b
+            );
+
+            border: 1px solid rgba(0,255,136,.22);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 30px 100px rgba(0,0,0,.4);
+        }
+
+        .offer-tag {
+            color: var(--green);
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .offer-box h2 {
+            margin: 12px 0;
+
+            font-size: 35px;
+
+            line-height: 1.1;
+        }
+
+        .price-old {
+            color: #666;
+
+            text-decoration: line-through;
+
+            font-size: 15px;
+        }
+
+        .price {
+            margin: 5px 0 10px;
+
+            font-size: 58px;
+
+            line-height: 1;
+
+            font-weight: 900;
+        }
+
+        .price small {
+            font-size: 18px;
+        }
+
+        .price-info {
+            color: #777;
+
+            font-size: 12px;
+
+            margin-bottom: 25px;
+        }
+
+        .offer-list {
+            text-align: left;
+
+            margin: 25px 0;
+        }
+
+        .offer-list li {
+            list-style: none;
+
+            padding: 9px 0;
+
+            color: #bdbdbd;
+
+            font-size: 13px;
+        }
+
+        .offer-list li::before {
+            content: "✓";
+
+            color: var(--green);
+
+            font-weight: 900;
+
+            margin-right: 10px;
+        }
+
+        .secure {
+            margin-top: 15px;
+
+            color: #666;
+
+            font-size: 10px;
+        }
+
+
+        /* ================================
+           GARANTIA
+        ================================= */
+
+        .guarantee {
+            padding: 80px 0;
+        }
+
+        .guarantee-box {
+            display: flex;
+
+            align-items: center;
+
+            gap: 30px;
+
+            max-width: 850px;
+
+            margin: auto;
+
+            padding: 30px;
+
+            background: #101010;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+        }
+
+        .guarantee-icon {
+            min-width: 70px;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(0,255,136,.08);
+
+            color: var(--green);
+
+            font-size: 28px;
+        }
+
+        .guarantee h3 {
+            margin-bottom: 5px;
+        }
+
+        .guarantee p {
+            color: #777;
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           FAQ
+        ================================= */
+
+        .faq {
+            background: #090909;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        details {
+            background: #101010;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            margin-bottom: 10px;
+
+            overflow: hidden;
+        }
+
+        summary {
+            cursor: pointer;
+
+            padding: 20px;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+
+            float: right;
+
+            color: var(--green);
+
+            font-size: 20px;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        details p {
+            padding: 0 20px 20px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* ================================
+           CTA FINAL
+        ================================= */
+
+        .final-cta {
+            padding: 120px 0;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+        .final-cta h2 {
+            max-width: 750px;
+
+            margin: auto;
+
+            font-size: clamp(35px, 6vw, 58px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+        .final-cta p {
+            max-width: 600px;
+
+            margin: 20px auto 30px;
+
+            color: #858585;
+
+            font-size: 14px;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            padding: 35px 0;
+
+            border-top: 1px solid var(--border);
+
+            text-align: center;
+        }
+
+        footer strong {
+            font-size: 16px;
+        }
+
+        footer strong span {
+            color: var(--green);
+        }
+
+        footer p {
+            margin-top: 8px;
+
+            color: #555;
+
+            font-size: 10px;
+        }
+
+
+        /* ================================
+           ANIMAÇÃO
+        ================================= */
+
+        .fade {
+            animation: fadeUp .8s ease both;
+        }
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ================================
+           RESPONSIVO
+        ================================= */
+
+        @media (max-width: 900px) {
+
+            .method-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bonus-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .navbar {
+                height: 65px;
+            }
+
+            .nav-link {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 105px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .module-list {
+                grid-template-columns: 1fr;
+            }
+
+            .bonus-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .offer-box {
+                padding: 30px 20px;
+            }
+
+            .price {
+                font-size: 48px;
+            }
+
+            .guarantee-box {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .final-cta {
+                padding: 80px 0;
+            }
+
+        }
+
+
+        @media (max-width: 420px) {
+
+            .container {
+                width: 90%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .offer-box h2 {
+                font-size: 29px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header>
+
+        <div class="container navbar">
+
+            <a href="#" class="logo">
+                FUTSAL<span>ELITE</span>
+            </a>
+
+            <a href="#oferta" class="nav-link">
+                Conhecer o método
+            </a>
+
+            <a href="#oferta" class="btn btn-primary">
+                Quero começar
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content fade">
+
+                <span class="badge">
+                    ⚡ MÉTODO FUTSAL ELITE
+                </span>
+
+                <h1>
+                    Pare de apenas treinar.
+                    <br>
+                    Comece a <span>treinar com propósito.</span>
+                </h1>
+
+                <p>
+                    Um programa estruturado para desenvolver técnica,
+                    inteligência de jogo, tomada de decisão e capacidades
+                    relacionadas às exigências do futsal.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#oferta" class="btn btn-primary btn-large">
+                        QUERO CONHECER O MÉTODO →
+                    </a>
+
+                    <a href="#conteudo" class="btn btn-large"
+                       style="border:1px solid #252525;background:#111;">
+                        VER O CONTEÚDO
+                    </a>
+
+                </div>
+
+                <div class="hero-note">
+                    Treine com mais organização. Evolua com mais propósito.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         STATS
+    ====================================== -->
+
+    <section class="stats">
+
+        <div class="container stats-grid">
+
+            <div class="stat">
+                <strong>12</strong>
+                <span>módulos de desenvolvimento</span>
+            </div>
+
+            <div class="stat">
+                <strong>30</strong>
+                <span>dias de desafio</span>
+            </div>
+
+            <div class="stat">
+                <strong>8</strong>
+                <span>pilares do jogador</span>
+            </div>
+
+            <div class="stat">
+                <strong>100%</strong>
+                <span>foco no desenvolvimento</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         PROBLEMA
+    ====================================== -->
+
+    <section class="section problem">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span class="mini">O problema</span>
+
+                <h2>
+                    Treinar muito não significa necessariamente treinar bem.
+                </h2>
+
+                <p>
+                    Sem direção, é fácil repetir exercícios sem saber
+                    exatamente o que está tentando desenvolver.
+                </p>
+
+            </div>
+
+
+            <div class="problem-grid">
+
+                <div class="problem-card">
+
+                    <div class="icon">⚽</div>
+
+                    <h3>
+                        Treinos sem organização
+                    </h3>
+
+                    <p>
+                        Você faz exercícios aleatórios, mas não possui
+                        uma sequência clara de desenvolvimento.
+                    </p>
+
+                </div>
+
+
+                <div class="problem-card">
+
+                    <div class="icon">🧠</div>
+
+                    <h3>
+                        Falta de tomada de decisão
+                    </h3>
+
+                    <p>
+                        Saber fazer um movimento é diferente de saber
+                        quando utilizá-lo durante uma partida.
+                    </p>
+
+                </div>
+
+
+                <div class="problem-card">
+
+                    <div class="icon">📈</div>
+
+                    <h3>
+                        Falta de acompanhamento
+                    </h3>
+
+                    <p>
+                        Sem registrar seu desempenho, fica difícil
+                        identificar o que realmente precisa melhorar.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         MÉTODO
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span class="mini">O método</span>
+
+                <h2>
+                    Desenvolva o jogador por completo.
+                </h2>
+
+                <p>
+                    O Futsal Elite trabalha diferentes componentes
+                    necessários para o desenvolvimento do jogador.
+                </p>
+
+            </div>
+
+
+            <div class="method-grid">
+
+                <div class="method-card">
+                    <div class="number">01</div>
+                    <h3>Domínio</h3>
+                    <p>Controle e recepção orientada.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="number">02</div>
+                    <h3>Condução</h3>
+                    <p>Controle da bola em movimento.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="number">03</div>
+                    <h3>1x1</h3>
+                    <p>Fintas, velocidade e mudança de direção.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="number">04</div>
+                    <h3>Passe</h3>
+                    <p>Precisão, orientação e tempo.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="number">05</div>
+                    <h3>Finalização</h3>
+                    <p>Precisão e diferentes situações de jogo.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="number">06</div>
+                    <h3>Inteligência</h3>
+                    <p>Percepção e tomada de decisão.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="number">07</div>
+                    <h3>Preparação</h3>
+                    <p>Capacidades físicas relacionadas ao jogo.</p>
+                </div>
+
+                <div class="method-card">
+                    <div class="number">08</div>
+                    <h3>Mentalidade</h3>
+                    <p>Disciplina, concentração e aprendizado.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CONTEÚDO
+    ====================================== -->
+
+    <section class="section modules" id="conteudo">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span class="mini">Por dentro do programa</span>
+
+                <h2>
+                    12 módulos para organizar sua evolução.
+                </h2>
+
+                <p>
+                    Um caminho progressivo para desenvolver diferentes
+                    áreas do seu jogo.
+                </p>
+
+            </div>
+
+
+            <div class="module-list">
+
+                <div class="module">
+                    <div class="module-number">01</div>
+                    <div>
+                        <h3>Fundamentos do jogador</h3>
+                        <p>Como estruturar seu desenvolvimento.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">02</div>
+                    <div>
+                        <h3>Domínio e controle</h3>
+                        <p>Recepção, domínio e orientação.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">03</div>
+                    <div>
+                        <h3>Condução e drible</h3>
+                        <p>Controle, velocidade e mudança de direção.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">04</div>
+                    <div>
+                        <h3>Passe e recepção</h3>
+                        <p>Precisão e execução sob pressão.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">05</div>
+                    <div>
+                        <h3>Finalização</h3>
+                        <p>Precisão e situações de jogo.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">06</div>
+                    <div>
+                        <h3>1x1</h3>
+                        <p>Ataque e defesa no confronto individual.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">07</div>
+                    <div>
+                        <h3>Inteligência de jogo</h3>
+                        <p>Percepção e tomada de decisão.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">08</div>
+                    <div>
+                        <h3>Jogos reduzidos</h3>
+                        <p>Aplicação das habilidades no jogo.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">09</div>
+                    <div>
+                        <h3>Preparação física</h3>
+                        <p>Capacidades relacionadas ao futsal.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">10</div>
+                    <div>
+                        <h3>Mentalidade</h3>
+                        <p>Confiança, disciplina e concentração.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">11</div>
+                    <div>
+                        <h3>Análise de jogo</h3>
+                        <p>Aprenda com suas próprias partidas.</p>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">12</div>
+                    <div>
+                        <h3>Plano de evolução</h3>
+                        <p>Organize seus próximos ciclos.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         BÔNUS
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span class="mini">Bônus exclusivos</span>
+
+                <h2>
+                    Você recebe muito mais do que apenas aulas.
+                </h2>
+
+            </div>
+
+
+            <div class="bonus-grid">
+
+                <div class="bonus">
+
+                    <span class="bonus-label">
+                        BÔNUS #01
+                    </span>
+
+                    <h3>
+                        Desafio 30 Dias
+                    </h3>
+
+                    <p>
+                        Uma estrutura para manter consistência
+                        e acompanhar sua evolução.
+                    </p>
+
+                </div>
+
+
+                <div class="bonus">
+
+                    <span class="bonus-label">
+                        BÔNUS #02
+                    </span>
+
+                    <h3>
+                        Diário do Jogador
+                    </h3>
+
+                    <p>
+                        Registre seus treinos, dificuldades
+                        e evolução.
+                    </p>
+
+                </div>
+
+
+                <div class="bonus">
+
+                    <span class="bonus-label">
+                        BÔNUS #03
+                    </span>
+
+                    <h3>
+                        Guia do Pé Não Dominante
+                    </h3>
+
+                    <p>
+                        Desenvolva maior confiança utilizando
+                        os dois pés.
+                    </p>
+
+                </div>
+
+
+                <div class="bonus">
+
+                    <span class="bonus-label">
+                        BÔNUS #04
+                    </span>
+
+                    <h3>
+                        Guia de Análise
+                    </h3>
+
+                    <p>
+                        Aprenda a observar suas próprias
+                        partidas e identificar pontos de evolução.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         OFERTA
+    ====================================== -->
+
+    <section class="offer" id="oferta">
+
+        <div class="container">
+
+            <div class="offer-box">
+
+                <span class="offer-tag">
+                    ACESSO AO FUTSAL ELITE
+                </span>
+
+                <h2>
+                    Comece seu desenvolvimento.
+                </h2>
+
+                <div class="price-old">
+                    De R$ 50,00
+                </div>
+
+                <!-- ALTERE O PREÇO ABAIXO SE NECESSÁRIO -->
+
+                <div class="price">
+                    R$ 29<span style="font-size:28px;">,99</span>
+                </div>
+
+                <div class="price-info">
+                    Pagamento conforme as condições apresentadas no checkout.
+                </div>
+
+
+                <ul class="offer-list">
+
+                    <li>
+                        Acesso ao método Futsal Elite
+                    </li>
+
+                    <li>
+                        12 módulos de desenvolvimento
+                    </li>
+
+                    <li>
+                        Programa de evolução de 12 semanas
+                    </li>
+
+                    <li>
+                        Desafio de 30 dias
+                    </li>
+
+                    <li>
+                        Diário do jogador
+                    </li>
+
+                    <li>
+                        Guia do pé não dominante
+                    </li>
+
+                    <li>
+                        Guia de análise de jogo
+                    </li>
+
+                </ul>
+
+
+                <!-- =====================================
+                     BOTÃO KIWIFY
+                     TROQUE O LINK ABAIXO
+                ====================================== -->
+
+                <a
+                    href="SEU_LINK_KIWIFY_AQUI"
+                    class="btn btn-primary btn-large btn-full"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    QUERO ENTRAR NO FUTSAL ELITE →
+
+                </a>
+
+
+                <div class="secure">
+                    🔒 Pagamento processado de forma segura pela plataforma de checkout.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         GARANTIA
+    ====================================== -->
+
+    <section class="guarantee">
+
+        <div class="container">
+
+            <div class="guarantee-box">
+
+                <div class="guarantee-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Compra com tranquilidade
+                    </h3>
+
+                    <p>
+                        Caso você ofereça uma garantia de reembolso,
+                        informe aqui exatamente o período e as condições
+                        estabelecidas no seu checkout.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FAQ
+    ====================================== -->
+
+    <section class="section faq">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span class="mini">Dúvidas</span>
+
+                <h2>
+                    Perguntas frequentes.
+                </h2>
+
+            </div>
+
+
+            <div class="faq-container">
+
+                <details>
+
+                    <summary>
+                        Preciso ser avançado para fazer o programa?
+                    </summary>
+
+                    <p>
+                        Não. O programa pode ser adaptado ao nível
+                        atual do jogador. O ideal é aumentar a dificuldade
+                        progressivamente.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        Preciso de uma academia?
+                    </summary>
+
+                    <p>
+                        Não necessariamente. Grande parte do desenvolvimento
+                        técnico pode ser feita com bola e espaço adequado.
+                        A preparação física deve ser adaptada à idade,
+                        experiência e necessidades do jogador.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        Preciso treinar todos os dias?
+                    </summary>
+
+                    <p>
+                        Não. Descanso e recuperação também fazem parte
+                        de um processo de treinamento bem estruturado.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        O curso garante que vou virar profissional?
+                    </summary>
+
+                    <p>
+                        Não. Nenhum curso sério pode garantir uma carreira
+                        profissional. O Futsal Elite oferece uma estrutura
+                        de desenvolvimento, mas os resultados dependem de
+                        diversos fatores.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        Posso treinar sozinho?
+                    </summary>
+
+                    <p>
+                        Sim, diversas atividades podem ser realizadas
+                        individualmente. Para exercícios de oposição,
+                        tomada de decisão e jogos reduzidos, um parceiro
+                        ou treinador pode ser útil.
+                    </p>
+
+                </details>
+
+
+                <details>
+
+                    <summary>
+                        Como receberei o acesso?
+                    </summary>
+
+                    <p>
+                        Após a confirmação do pagamento, o acesso deve ser
+                        disponibilizado conforme a configuração realizada
+                        no seu produto e checkout.
+                    </p>
+
+                </details>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CTA FINAL
+    ====================================== -->
+
+    <section class="final-cta">
+
+        <div class="container">
+
+            <span class="mini green">
+                FUTSAL ELITE
+            </span>
+
+            <h2>
+                Seu próximo nível começa com um treino com propósito.
+            </h2>
+
+            <p>
+                Organize seu desenvolvimento, treine diferentes
+                componentes do jogo e acompanhe sua evolução.
+            </p>
+
+
+            <a
+                href="SEU_LINK_KIWIFY_AQUI"
+                class="btn btn-primary btn-large"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                QUERO COMEÇAR AGORA →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <strong>
+                FUTSAL<span>ELITE</span>
+            </strong>
+
+            <p>
+                © 2026 Futsal Elite. Todos os direitos reservados.
+            </p>
+
+            <p>
+                Este programa não garante resultados específicos.
+                O desempenho depende de diversos fatores individuais.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
